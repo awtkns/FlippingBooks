@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}Welcome {{ request.user.username }}{% endblock %}
+
+
+
+
+{% block content %}
+
+    <h1 class="innerHeading">Welcome {{ request.user.username }}</h1>
+
+    <div class="clearspace"></div>
+    <table class="table">
+        <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Edition</th>
+            <th>Price</th>
+            <th>Condition</th>
+            <th>Selling User</th>
+        </tr>
+        {% for listing in listings %}
+            <tr>
+                <td>{{ listing.0 }}</td>
+                <td>{{ listing.1 }}</td>
+                <td>{{ listing.2 }}</td>
+                <td>${{ listing.3 }}</td>
+                <td>{{ listing.4 }}</td>
+                <td>{{ listing.5 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p><br><strong>Number of listings: {{ stats }}</strong></p>
+
+{% endblock %}

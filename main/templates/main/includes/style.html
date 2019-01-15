@@ -1,0 +1,556 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $( function() {
+        $( "#accordion" ).accordion({
+            collapsible: true,
+            heightStyle: "content"
+        });
+    } );
+</script>
+
+
+
+<style>
+    
+    .footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footer ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    .footer li {
+        float: inherit;
+        //border-right: 1px solid #bbb;
+
+    }
+
+    .footer_link {
+        display: block;
+        color: #646363;
+        text-align: center;
+        padding: 2px 1px;
+        text-decoration: none;
+        //font-size: .8em;
+    }
+
+    footer li a:hover{
+       background-color: #333;
+       color: white;
+    }
+
+    .clearspace {
+        margin: 2%;
+        clear: left;
+        width: 100%;
+    }
+
+.innerHeading{
+            width:100%;
+
+        margin-top: 40px;
+        font-size: 4.5em;
+        color:#333;
+    line-height: 90%;
+    margin-bottom: 3%;
+    height: fit-content;
+
+    }
+
+.login_heading{
+     margin-bottom:60px;
+}
+
+#text_home{
+
+    width: 25%;
+    clear:left;
+    float: left;
+
+}
+
+#text_home p{
+    padding:20px;
+
+}
+
+
+
+
+.table_home{
+
+    border-collapse: collapse;
+    width: 70%;
+    text-align: center;
+    //clear:left;
+    float: right;
+
+}
+
+ .table_home tr{
+        width:100%;
+
+    }
+
+.table_home td, #customers th {
+    border: 1px solid #ddd;
+    padding: 10px;
+
+}
+
+.table_home tr:nth-child(even){background-color: #f2f2f2;}
+
+
+.table_home th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    //background-color: #545454;
+    background-color: #333;
+    color: white;
+    font-weight: normal;
+
+    text-align: center;
+    clear:left;
+
+}
+
+
+.table{
+
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    //clear:left;
+    float: right;
+
+        /*background-color: ;*/
+}
+
+ .table tr{
+        width:100%;
+    }
+
+.table td, #customers th {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.table tr:nth-child(even){background-color: #f2f2f2;}
+
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    //background-color: #545454;
+    background-color: #333;
+    color: white;
+    font-weight: normal;
+
+    text-align: center;
+    clear:left;
+
+}
+
+
+     form{
+        clear:left;
+        display: block;
+    }
+    .form_addbook {
+        clear: left;
+    }
+
+
+
+    .centered{
+          //margin-top: 5%;
+    //display: inline-block;
+    //text-align: center;
+    //padding-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    //width: 8%;
+    }
+
+    .centered form p input {
+        clear:right;
+    }
+    .centered form p label {
+        float:left;
+        width: 9em;
+        padding-right: 1em;
+
+    }
+
+    #submit {
+        clear:left;
+    }
+
+    .ui-state-active{
+        background-color: #333;
+        color: white;
+        border-color: black;
+    }
+
+
+
+/*********login form  style starts***********/
+
+    .login-form input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+        margin-bottom: 1%;
+}
+
+.login-form input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+    margin-bottom: 1%;
+}
+
+
+.login-form input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+    margin-bottom: 1%;
+}
+
+
+
+
+
+/* text color inside placeholder */
+
+::-webkit-input-placeholder {
+    color: grey;
+    font-size: 1.3em;
+}
+
+.login-form button {
+    background-color: #333;
+    color: white;
+    padding: 14px 20px;
+    //margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.3em;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+    margin-top: 5%;
+}
+
+.login-form button:hover {
+    background-color: #111;
+}
+
+.login-form {
+    margin-top: 2%;
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    //text-align: left;
+    width: 50%;
+}
+
+     #register_now{
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        border-bottom: double;
+        border-bottom-color: #333;
+    }
+
+
+
+    #required_rigester {
+    / / font-style: italic;
+    / / font-size: 1 em;
+    color: #333;
+        text-align: left;
+        margin-bottom: 2%;
+        margin-top: -2%;
+}
+
+    .helptext{
+
+        font-size: .8em;
+        color:#333;
+        font-style: italic;
+    }
+
+    .login-form label{
+    color:#333;
+
+}
+
+    /**********registered form style starts**********/
+
+
+
+    .register-form input[type=text] {
+    width: 100%;
+    padding: 4px 8px;
+    //margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+        //margin-bottom: 1%;
+}
+
+
+
+.register-form input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    //margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+    //margin-bottom: 1%;
+}
+
+
+.register-form select {
+    width: 100%;
+    padding: 12px 20px;
+    //margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+    //margin-bottom: 1%;
+}
+.register-form input[type=number] {
+    width: 100%;
+    padding: 4px 8px;
+    //margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+    //margin-bottom: 1%;
+}
+
+
+
+
+
+/* text color inside placeholder */
+
+::-webkit-input-placeholder {
+    color: grey;
+    font-size: 1.3em;
+}
+
+.register-form input {
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.3em;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.register-form button:hover {
+    background-color: #111;
+}
+
+
+.register-form {
+    //margin-top: 1%;
+    display: inline-block;
+    width: 40%;
+    //clear:left;
+    //float: right;
+    //margin-top: 10%;
+    //margin-bottom: 5px;
+    padding: 10px;
+    padding-left: 20px;
+
+
+}
+
+
+    .register-form label{
+    color:#333;
+
+}
+.content_search{
+    clear: left;
+    width: 45%;
+    padding: 10px;
+    //margin-top: -2%;
+    margin-bottom: 2%;
+}
+    /**********registered  forms style ends**********/
+
+
+
+    /************search page tables starts ********/
+
+
+
+    #accordion{
+        width: 50%;
+        margin: auto;
+       //height: 1%;
+        //margin-top: -0.5%;
+        padding-bottom: 10px;
+    }
+
+
+
+
+    .search-form input[type=text] {
+    //width: 100%;
+      width: 70%;
+    padding: 4px 8px;
+
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+
+}
+
+
+.search-form select {
+    //width: 100%;
+      width: 70%;
+    //padding: 12px 20px;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+    //margin-right: 1%;
+
+}
+
+
+.search-form input[type=number] {
+    //width: 100%;
+      width: 70%;
+    padding: 4px 8px;
+
+    box-sizing: border-box;
+    border: none;
+    background-color: #333;
+    color: white;
+
+}
+
+
+.search-form  input {
+    background-color: #333;
+    color: white;
+    padding: 4px 8px;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.3em;
+    width: 80%;
+
+    margin-top: 2%;
+}
+
+
+
+#button_search:hover {
+    background-color: #111;
+}
+
+
+.search-form {
+
+    display: inline-block;
+    width: 100%;
+
+    //padding: 10px;
+    //padding-left: 20px;
+
+
+}
+
+
+.search-form p{
+    //color:red;
+    //font-size: 80%;
+    padding-top: 4%;
+    //padding-bottom: -1%;
+}
+
+#check_box{
+    background-color: #333;
+    color: white;
+    padding: 0;
+
+    //border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 1.3em;
+    width: auto;
+
+    margin-top: 1%;
+    display: inline-block;
+}
+
+
+#check_text{
+    padding: 0;
+    clear: left;
+    display: inline-block;
+    margin-top: 3%;
+    padding-right: 10px;
+    padding-left: -2px;
+}
+
+
+    /************search page tables ends ********/
+
+
+
+
+
+
+
+</style>

@@ -1,0 +1,45 @@
+{%  extends 'main/base_unregistered.html' %}
+
+{% block title %}
+Home
+{%  endblock %}
+
+{% block content %}
+
+    <div>
+    <h1  class="innerHeading">Welcome to Flipping Books!</h1>
+<div>
+
+
+<p id="text_home">
+    FlippingBooks is a platform for students to buy and
+    sell texts.  The intent of FlippingBooks is to provide
+    a free, fast, and effective way for students to save and
+    recoup money by buying used textsbooks while also being
+    able to sell their old unwanted books.
+    In essence, this site is made to flip books.
+    <br>
+    <br>
+    You must login to view the seller's contact information.
+</p>
+
+    <table class="table_home">
+        <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Edition</th>
+            <th>Price</th>
+            <th>Condition</th>
+        </tr>
+        {% for listing in listings %}
+            <tr>
+                <td>{{ listing.0 }}</td>
+                <td>{{ listing.1 }}</td>
+                <td>{{ listing.2 }}</td>
+                <td>${{ listing.3 }}</td>
+                <td>{{ listing.4 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

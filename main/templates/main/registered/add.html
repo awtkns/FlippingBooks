@@ -1,0 +1,176 @@
+{%  extends 'main/base.html' %}
+
+{% block title %}
+    Add Stuff! :)
+{%  endblock %}
+
+{% block content %}
+    <h1 class="innerHeading">Add Information</h1>
+
+    {% if error_message %}
+            <p style="color: #761c19;"><strong>{{ error_message|safe }}</strong></p>
+    {% endif %}
+
+    <div id="accordion" style="width:90%;margin: auto;">
+        <h3 class="background">Add Book</h3>
+        <div>
+            <form class="register-form" action="add" method="post">
+                {% csrf_token %}
+                {{ form_book.as_p }}
+                <input type="submit" name="addbook" value="Add Book" />
+            </form>
+            {% if error_message_book %}
+                <p style="color: #761c19;"><strong>{{ error_message_book|safe }}</strong></p>
+            {% endif %}
+            <div class="clearspace"></div>
+            <table class="table">
+                <tr>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Edition</th>
+                </tr>
+                {% for book in books %}
+                    <tr>
+                        <td> {{ book.0 }}</td>
+                        <td> {{ book.1 }}</td>
+                        <td> {{ book.2 }}</td>
+                        <td> {{ book.3 }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+        <h3 class="background">Add Course</h3>
+        <div>
+            <form class="register-form" action="add" method="post">
+                {% csrf_token %}
+                {{ form_course.as_p }}
+                <input type="submit" name="addcourse" value="Add Course" />
+            </form>
+            {% if error_message_course %}
+                <p style="color: #761c19;"><strong>{{ error_message_course|safe }}</strong></p>
+            {% endif %}
+            <div class="clearspace"></div>
+
+            <table class="table">
+                    <tr>
+                        <th>CourseID</th>
+                        <th>Dept</th>
+                        <th>Course Number</th>
+                        <th>Course Name</th>
+                    </tr>
+                    {% for c in courses %}
+                        <tr>
+                            <td> {{ c.0 }}</td>
+                            <td> {{ c.1 }}</td>
+                            <td> {{ c.2 }}</td>
+                            <td> {{ c.3 }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+        </div>
+
+        <h3 class="background">Add Professor</h3>
+        <div>
+            <form class="register-form" action="add" method="post">
+                {% csrf_token %}
+                {{form_prof.as_p}}
+                <input type="submit" name="addprof" value="Add Professor" />
+            </form>
+            {% if error_message_course %}
+                <p style="color: #761c19;"><strong>{{ error_message_course|safe }}</strong></p>
+            {% endif %}
+            <div class="clearspace"></div>
+            <table class="table">
+                <tr>
+                    <th>ProfID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+                {% for prof in profs %}
+                    <tr>
+                        <td> {{ prof.0 }}</td>
+                        <td> {{ prof.1 }}</td>
+                        <td> {{ prof.2 }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <h3 class="background">Add Course Section</h3>
+        <div>
+            <form class="register-form" action="add" method="post">
+                {% csrf_token %}
+                {{form_section.as_p}}
+                <input type="submit" name="addsection" value="Add Section" />
+            </form>
+            {% if error_message_course %}
+                <p style="color: #761c19;"><strong>{{ error_message_course|safe }}</strong></p>
+            {% endif %}
+            <div class="clearspace"></div>
+            <table class="table">
+                <tr>
+                    <th>Section ID</th>
+                    <th>Department</th>
+                    <th>Course Number</th>
+                    <th>Section Number</th>
+                    <th>Term</th>
+                    <th>Year</th>
+                    <th>Prof</th>
+                    <th>School</th>
+                </tr>
+                {% for section in sections %}
+                    <tr>
+                        <td> {{ section.0 }}</td>
+                        <td> {{ section.1 }}</td>
+                        <td> {{ section.2 }}</td>
+                        <td> {{ section.3 }}</td>
+                        <td> {{ section.4 }}</td>
+                        <td> {{ section.5 }}</td>
+                        <td> {{ section.6 }}</td>
+                        <td> {{ section.7 }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <h3 class="background">Link a Book to a Course Section</h3>
+        <div>
+            <form class="register-form" action="add" method="post">
+                {% csrf_token %}
+                {{form_booksinsection.as_p}}
+                <input type="submit" name="addbooksinsection" value="Add Book in Section" />
+            </form>
+            {% if error_message_course %}
+                <p style="color: #761c19;"><strong>{{ error_message_course|safe }}</strong></p>
+            {% endif %}
+            <div class="clearspace"></div>
+            <table class="table">
+                <tr>
+                    <th>ISBN</th>
+                    <th>Book Title</th>
+                    <th>Department</th>
+                    <th>Course Number</th>
+                    <th>Section Number</th>
+                    <th>Term</th>
+                    <th>Year</th>
+                    <th>School</th>
+                </tr>
+                {% for book_section in booksinsection %}
+                    <tr>
+                        <td> {{ book_section.0 }} </td>
+                        <td> {{ book_section.1 }} </td>
+                        <td> {{ book_section.2 }} </td>
+                        <td> {{ book_section.3 }} </td>
+                        <td> {{ book_section.4 }} </td>
+                        <td> {{ book_section.5 }} </td>
+                        <td> {{ book_section.6 }} </td>
+                        <td> {{ book_section.7 }} </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

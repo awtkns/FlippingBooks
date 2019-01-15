@@ -1,0 +1,42 @@
+{% extends 'main/base_unregistered.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+    <div class="centered">
+
+        <h1 class="innerHeading" class="login_heading">Login to Your Account</h1>
+
+
+        {% if error_message %}
+            <p style="color: #761c19;"><strong>{{ error_message|safe }}</strong></p>
+        {% endif %}
+    </div>
+
+
+ <div class="login-form">
+
+        <form class="form-horizontal" role="form" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+
+                <input placeholder="Username" id="id_username" maxlength="150" name="username" type="text">
+
+
+                <input placeholder="Password" id="id_password" maxlength="30" name="password" type="password">
+
+
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+
+     <p>Don't have an account? <a id="register_now" href="{% url 'signup' %}">Register now</a> </p>
+
+
+
+
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,48 @@
+
+
+
+
+{#**************************************************#}
+{#**************************************************#}
+{#********************DEPRECATED********************#}
+{#**************************************************#}
+{#**************************************************#}
+
+
+
+
+{%  extends 'main/base.html' %}
+
+{% block title %}
+    Add
+{%  endblock %}
+
+{% block content %}
+    <h1 class="innerHeading">Add a Professor</h1>
+    <div class="centered">
+        <form action="addprof" method="post">
+            {% csrf_token %}
+            {% include 'main/form_template.html' %}
+            <input type="submit" value="Add Prof" />
+        </form>
+
+        {% if error_message %}
+            <p style="color: #761c19;"><strong>{{ error_message|safe }}</strong></p>
+        {% endif %}
+    </div>
+    <div class="clearspace"></div>
+    <table class="table">
+        <tr>
+            <th>ProfID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        {% for prof in profs %}
+            <tr>
+                <td> {{ prof.0 }}</td>
+                <td> {{ prof.1 }}</td>
+                <td> {{ prof.2 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

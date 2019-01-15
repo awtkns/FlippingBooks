@@ -1,0 +1,35 @@
+{%  extends 'main/base_unregistered.html' %}
+
+
+
+{% block title %}
+    About Us
+{%  endblock %}
+
+{% block content %}
+    <div style="width:98%; margin: auto;">
+        <h1 class="innerHeading">About Us</h1>
+        <p style="font-size: 1.5em;text-align: justify;">FlippingBooks is a
+            platform for students to buy and sell texts.
+            The intent of FlippingBooks is to provide a free, fast, and
+            effective way for students to save and recoup money by buying
+            used textbooks while also being able to sell their old unwanted
+            books. In essence, this site is made to flip books.</p>
+        <p style="font-size: 1.5em;text-align: justify;">This project was
+            inspired by the lack of user friendly way of selling and buying textbooks!
+            We hope you enjoy using this site as much as we've enjoyed creating it for you!
+        </p>
+        <div class="clearspace"></div>
+        <h2>Stats</h2>
+        <p>
+            <br>Total number of users: {{ stats.0 }}
+            <br>Total number of listings: {{ stats.1 }}
+            <br>Number of unique books listed: {{ stats.2 }}
+            <br>Average price of all listings: {{ stats.3 }}$
+            <br>The book "{{ stats.4 }}" has the highest average price with a price of {{ stats.5 }}$
+            <br>The book "{{ stats.6 }}" has the lowest average price with a price of {{ stats.7 }}$
+        </p>
+    </div>
+{% endblock %}
+
+

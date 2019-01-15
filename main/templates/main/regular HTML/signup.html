@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignUp</title>
+
+    <link rel="icon" href="images/fivicon_v2.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="../../../static/css/style.css">
+
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <h1 class="heading">Flipping Books</h1>
+        <img src="images/logo_2.png" alt="logo" id="logo_img">
+
+        <div class="menubar">
+
+            <ul>
+                <li>
+                    <a href="home.html">Home</a></li>
+                <li>
+                    <a href="aboutus.html">About Us</a></li>
+                <li>
+                    <a href="contact.html">Contact</a></li>
+
+
+                <!-- login/logout/signup active on different pages -->
+                <li class="button">
+                    <a href="login_page.html"> Login</a></li>
+                <li class="button">
+                    <a class="active" href="signup.html">SignUp</a></li>
+                <li class="button">
+                    <a href="home.html" id="logout">Logout</a></li>
+                
+                <li class="button">
+                    <a href="mylisting.html" id="mylisting">MyListing</a></li>
+                <!--  visible only when logged in-->
+
+            </ul>
+
+
+        </div>
+
+
+
+
+        <!-- main body content  -->
+        <div class="login-form">
+
+            <h1 id="h1-login">SignUp</h1>
+
+
+            <form method="POST">
+
+                <input type="text" name="fname" placeholder="First Name">
+
+                <input type="text" name="lname" placeholder="Last Name">
+
+                <input type="text" name="phone" placeholder="Phone">
+
+                <input type="text" name="email" placeholder="Email">
+
+                <input type="password" name="pwd" placeholder="Password">
+
+
+                <button type="submit" name="submit">SignUp</button>
+
+
+
+            </form>
+
+        </div>
+
+
+
+
+
+    </div>
+
+</body>
+
+
+</html>

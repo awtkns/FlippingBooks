@@ -1,0 +1,44 @@
+{#**************************************************#}
+{#**************************************************#}
+{#********************DEPRECATED********************#}
+{#**************************************************#}
+{#**************************************************#}
+
+
+{%  extends 'main/base.html' %}
+
+{% block title %}
+    Add
+{%  endblock %}
+
+{% block content %}
+    <h1 class="innerHeading">Add Book</h1>
+    <div class="centered">
+        <form action="addbook" method="post">
+            {% csrf_token %}
+            {% include 'main/form_template.html' %}
+            <input type="submit" value="Add Book" />
+        </form>
+
+        {% if error_message %}
+            <p style="color: #761c19;"><strong>{{ error_message|safe }}</strong></p>
+        {% endif %}
+    </div>
+    <div class="clearspace"></div>
+    <table class="table">
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Edition</th>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td> {{ book.0 }}</td>
+                <td> {{ book.1 }}</td>
+                <td> {{ book.2 }}</td>
+                <td> {{ book.3 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

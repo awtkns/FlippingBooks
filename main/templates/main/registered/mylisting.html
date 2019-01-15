@@ -1,0 +1,71 @@
+{%  extends 'main/base.html' %}
+
+{% block title %}
+    My Listings
+{%  endblock %}
+
+{% block content %}
+    <h1 class="innerHeading">Here are all your listings</h1>
+
+    {% if error_message %}
+            <p style="color: #761c19;"><strong>{{ error_message|safe }}</strong></p>
+    {% endif %}
+
+    <div id="accordion" style="width:90%;margin: auto;">
+        <h3 class="background">Add listing</h3>
+        <div>
+            <form class="register-form" action="mylisting" method="post">
+                {% csrf_token %}
+                {{ add.as_p }}
+                {% include 'main/form_template.html' %}
+                <input type="submit" name="add" value="Add Listing" />
+            </form>
+            <div class="clearspace"></div>
+        </div>
+
+        <h3 class="background">Update listing</h3>
+        <div>
+            <form class="register-form" action="mylisting" method="post">
+                {% csrf_token %}
+                {{ update.as_p }}
+                <input type="submit" name="update" value="Update Listing" />
+            </form>
+            <div class="clearspace"></div>
+        </div>
+
+        <h3 class="background">Delete listing</h3>
+        <div>
+            <form class="register-form" action="mylisting" method="post">
+                {% csrf_token %}
+                {{ delete.as_p}}
+                <input type="submit" name="delete" value="Delete Listing" />
+            </form>
+            <div class="clearspace"></div>
+        </div>
+    </div>
+
+
+    <div class="clearspace"></div>
+    <table class="table">
+        <tr>
+            <th>ISBN</th>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Edition</th>
+            <th>Price</th>
+            <th>Condition</th>
+        </tr>
+        {% for listing in listings %}
+            <tr>
+                <td>{{ listing.0 }}</td>
+                <td>{{ listing.1 }}</td>
+                <td>{{ listing.2 }}</td>
+                <td>{{ listing.3 }}</td>
+                <td>${{ listing.4 }}</td>
+                <td>{{ listing.5 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

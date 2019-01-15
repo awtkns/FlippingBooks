@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="icon" href="{% static 'images/fivicon_v2.png' %}" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="{%  static 'css/style.css' %}">
+
+    {% include 'main/includes/style.html' %}
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <h1 class="heading">Flipping Books</h1>
+        <img src="{% static 'images/logo_2.png'%}" alt="logo" id="logo_img">
+
+        <div class="menubar">
+
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}">Home</a></li>
+                <li>
+                    <a href="{% url 'about' %}">About Us</a></li>
+                <li>
+                    <a href="{% url 'contact' %}">Contact</a></li>
+                <li>
+                    <a href="{% url 'search' %}">Search</a></li>
+{#                <li>#}
+{#                    <a href="{% url 'addbook' %}">Add Book</a></li>#}
+{#                <li>#}
+{#                    <a href="{% url 'addprof' %}">Add Prof</a></li>#}
+
+                <li>
+                  <a href="{% url 'add' %}">Add</a></li>
+{#                <li><input id="search_bar" type="text" placeholder="Search for books.."></li>#}
+
+
+                <!-- login/signup /logout/Mylisting active on different pages -->
+{#                <li class="button">#}
+{#                    <a href="regular%20HTML/login_page.html"> Login</a></li>#}
+{#                <li class="button">#}
+{#                    <a  href="regular%20HTML/signup.html">SignUp</a></li>#}
+
+                <li class="button">
+                    <a href="{% url 'logout' %}" id="logout">Logout</a></li><!-- visible only when logged in-->
+                <li class="button">
+                    <a href="{% url 'mylisting' %}" id="mylisting">MyListing</a></li>
+{#                <li class="button">#}
+{#                    <a href="{% url 'add' %}" id="addList">Add Listing</a></li>#}
+                <!--  visible only when logged in-->
+
+            </ul>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+
+    </div>
+
+
+
+</body>
+
+
+</html>

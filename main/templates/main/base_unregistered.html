@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="icon" href="{% static 'images/fivicon_v2.png' %}" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="{%  static 'css/style.css' %}">
+
+{% include 'main/includes/style.html' %}
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <h1 class="heading">Flipping Books</h1>
+        <img src="{% static 'images/logo_2.png'%}" alt="logo" id="logo_img">
+
+        <div class="menubar">
+
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}">Home</a></li>
+                <li>
+                    <a href="{% url 'about' %}">About Us</a></li>
+                <li>
+                    <a href="{% url 'contact' %}">Contact</a></li>
+
+
+                <!-- login/signup /logout/Mylisting active on different pages -->
+                <li class="button">
+                    <a href="{% url 'login' %}"> Login</a></li>
+                <li class="button">
+                    <a  href="{% url 'signup' %}">SignUp</a></li>
+
+{#                <li class="button">#}
+{#                    <a href="{% url 'logout' %}" id="logout">Logout</a></li><!-- visible only when logged in-->#}
+{#                <li class="button">#}
+{#                    <a href="{% url 'my_listing' %}" id="mylisting">MyListing</a></li>#}
+                <!--  visible only when logged in-->
+
+            </ul>
+
+
+        </div>
+
+
+
+        {% block content %}
+        {% endblock %}
+
+
+
+
+
+    </div>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,120 @@
+{%  extends 'main/base.html' %}
+
+{% block title %}
+    Search
+{%  endblock %}
+
+{% block content %}
+
+
+    <h1 class="innerHeading"> Search </h1>
+
+    <p class="content_search">
+        Find your future book here.  Happy Shopping!
+        <br><br>
+        <strong>Basic Search</strong> - Filter by book isbn, title, price and condition.
+        <br><br>
+        <strong>Advanced Search</strong> - Filter by book isbn, title, price, condition, course number, prof name,
+        department, and school.   You may also filter for only the lowest price and filter out your listings.
+    </p>
+
+    <div id="accordion">
+        <h3 class="background">Basic Search</h3>
+        <div>
+            <form class="search-form" action="search" method="post">
+                {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td ><p>Book Title</p>{{ form_basic.book_title }}</td>
+                            <td ><p>ISBN</p>{{ form_basic.ISBN }}</td>
+                        <tr>
+                            <td ><p>Price</p>{{ form_basic.price }}</td>
+                            <td ><p>Condition</p>{{ form_basic.condition_form }}</td>
+                    </table>
+                <input id="button_search" type="submit" name="basic" value="Submit" />
+            </form>
+        </div>
+
+        <h3 class="background">Advanced Search</h3>
+        <div>
+            <form class="search-form"  action="search" method="post">
+                {% csrf_token %}
+                <table>
+                        <tr>
+                            <td><p>Book Title</p>{{ form_advanced.book_title }}</td>
+                            <td><p>ISBN</p>{{ form_advanced.ISBN }}</td>
+                            <td><p>Course #</p>{{ form_advanced.course_number }}</td>
+                            <td><p>Prof's L.Name</p>{{ form_advanced.prof_lastname }}</td>
+                        <tr>
+                            <td><p>Dept</p>{{ form_advanced.department }}</td>
+                            <td><p>School</p>{{ form_advanced.school }}</td>
+                            <td><p>Price</p>{{ form_advanced.price }}</td>
+                            <td><p>Condition</p>{{ form_advanced.condition_form }}</td>
+                        <tr>
+                            <td colspan="2"><p>Minimum Price Only (per book)</p>{{ form_advanced.find_min }}</td>
+                            <td colspan="2"><p>Don't Show My listings</p>{{ form_advanced.not_mine }}</td>
+                </table>
+                <input id="button_search" type="submit" name="advanced" value="Submit" />
+            </form>
+        </div>
+    </div>
+
+    {% if listings %}
+    <table class="table">
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Edition</th>
+            <th>Price</th>
+            <th>Condition</th>
+            <th>Seller</th>
+        </tr>
+        {% for listing in listings %}
+            <tr>
+                <td>{{ listing.0 }}</td>
+                <td>{{ listing.1 }}</td>
+                <td>{{ listing.2 }}</td>
+                <td>{{ listing.3 }}</td>
+                <td>${{ listing.4 }}</td>
+                <td>{{ listing.5 }}</td>
+                <td>{{ listing.6 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    {% if advanced_listings %}
+    <table class="table">
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Edition</th>
+            <th>Department</th>
+            <th>Course Number</th>
+            <th>Prof</th>
+            <th>School</th>
+            <th>Price</th>
+            <th>Condition</th>
+            <th>Seller</th>
+        </tr>
+        {% for advanced_listing in advanced_listings %}
+            <tr>
+                <td>{{ advanced_listing.0 }}</td>
+                <td>{{ advanced_listing.1 }}</td>
+                <td>{{ advanced_listing.2 }}</td>
+                <td>{{ advanced_listing.3 }}</td>
+                <td>{{ advanced_listing.4 }}</td>
+                <td>{{ advanced_listing.5 }}</td>
+                <td>{{ advanced_listing.6 }}</td>
+                <td>{{ advanced_listing.7 }}</td>
+                <td>${{ advanced_listing.8 }}</td>
+                <td>{{ advanced_listing.9 }}</td>
+                <td>{{ advanced_listing.10 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{%  extends 'main/base_unregistered.html' %}
+
+{% block title %}Register{% endblock %}
+
+
+{% block content %}
+    <div class="centered">
+        <h1 class="innerHeading">Register for an Account</h1>
+</div>
+
+    <div class="login-form">
+        <p id="required_rigester" > * All fields are required</p>
+
+        <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'main/form_template.html' %}
+            <button type="submit" class="submit">Submit</button>
+
+        </form>
+
+        <p style="width:100%;">Already have an account? <a  id="register_now" href="{% url 'login' %}">Click here</a> to log in.</p>
+
+    </div>
+
+{% endblock %}
