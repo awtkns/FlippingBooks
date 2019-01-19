@@ -1,7 +1,7 @@
 ************************************
 INSTALLATION
 ************************************
-1. Instal Python 3.6.x
+1. Install Python 3.6.x
 https://www.python.org/downloads/
 We recommend Python 3.6.x.
 NOTE: Python 2 and Python 3 are not the same.
@@ -9,11 +9,11 @@ Do not install Python 2
 Please see link below for more details.
 https://wiki.python.org/moin/Python2orPython3
 
-2. Instal pip
+2. Install pip
 Instructions as follows
 https://pip.pypa.io/en/stable/installing/
 
-3. Instal Django 1.11.x
+3. Install Django 1.11.x
 https://www.djangoproject.com/download/
 You can use pip to install Django or
 manually install it.
@@ -55,20 +55,3 @@ pages. See readme.txt in templates/main/ for more information.
 6. main/forms.py is used to generate user input forms for retreviing data from user.
 7. sql.py contains all raw SQL queires.
 8. map.py contains all tuples for mapping key to value for dropdown lists.
-
-************************************
-OUR SQL STATEMENTS
-************************************
-
-All our sql statments are located within ./main/sql.py
-All the sql was done using raw sql using SqlLite.
-
-For the detailed querys visit ./main/sql.py
-
-************************************
-HELP
-************************************
-
-If for some reason you cannot set up django correctly
-please contact us so we can set up webhosting for you to be able to view our site.
-
